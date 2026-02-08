@@ -278,6 +278,7 @@
                 background: #1e1e1e;
                 padding: 20px 0;
                 text-align: center;
+                z-index: 1001;
             }
 
             nav ul.active {
@@ -367,7 +368,7 @@
         <a href="#home" class="logo">
             <i class="fa-solid fa-layer-group"></i> GRR Textiles
         </a>
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
         </div>
         <ul>
