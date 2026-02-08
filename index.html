@@ -258,9 +258,49 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
             nav ul {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e1e1e;
+                padding: 20px 0;
+                text-align: center;
             }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            /* Fix dropdown on mobile to flow naturally */
+            nav ul li ul.dropdown {
+                position: relative;
+                width: 100%;
+                box-shadow: none;
+                background: #333;
+                top: 0;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            #home h2 {
+                font-size: 32px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
         }
 
         /* WhatsApp Float */
@@ -321,6 +361,9 @@
         <a href="#home" class="logo">
             <i class="fa-solid fa-layer-group"></i> GRR Textiles
         </a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
@@ -481,6 +524,11 @@
 </a>
 
 <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        document.querySelector('nav ul').classList.toggle('active');
+    }
+
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
