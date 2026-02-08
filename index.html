@@ -18,6 +18,8 @@
 
         body {
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         /* Navbar */
@@ -257,7 +259,11 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            header {
+                padding: 15px 20px;
+            }
+
             .menu-toggle {
                 display: block;
             }
@@ -528,6 +534,13 @@
     function toggleMenu() {
         document.querySelector('nav ul').classList.toggle('active');
     }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('nav ul').classList.remove('active');
+        });
+    });
 
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
