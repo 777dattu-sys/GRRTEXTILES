@@ -273,8 +273,8 @@
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
-                left: 0;
-                width: 100%;
+                left: -20px;
+                width: calc(100% + 40px);
                 background: #1e1e1e;
                 padding: 20px 0;
                 text-align: center;
@@ -539,7 +539,10 @@
     // Close menu when a link is clicked
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
-            document.querySelector('nav ul').classList.remove('active');
+            // Only close the menu if the link does NOT have a dropdown (like Services)
+            if (!link.nextElementSibling || !link.nextElementSibling.classList.contains('dropdown')) {
+                document.querySelector('nav ul').classList.remove('active');
+            }
         });
     });
 
